@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503232204) do
+ActiveRecord::Schema.define(:version => 20120503232418) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
@@ -19,8 +19,12 @@ ActiveRecord::Schema.define(:version => 20120503232204) do
     t.string   "label"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "budgets", :force => true do |t|
