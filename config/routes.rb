@@ -1,4 +1,6 @@
 CloudCount2::Application.routes.draw do
+  resources :transactions
+
   resources :notes
 
   resources :sublines
