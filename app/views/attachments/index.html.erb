@@ -1,0 +1,30 @@
+<h1>Attachments</h1>
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.attachment.budget_id", :default => t("activerecord.labels.budget_id", :default => "Budget_id")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @attachments.each do |attachment| -%>
+   <tr>
+    <td><%= attachment.id %></td>
+        <td><%= link_to attachment.budget_id, attachment_path(attachment) %>
+    </td>
+        <td><%= attachment.created_at %></td>
+    <td>
+      <%= link_to "Show", attachment_path(attachment) %>
+      <%= link_to "Edit", edit_attachment_path(attachment) %>
+      <%= link_to "Destroy", attachment_path(attachment), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_attachment_path, :class => 'btn primary' %>
