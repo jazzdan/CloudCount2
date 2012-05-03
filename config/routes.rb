@@ -5,11 +5,17 @@ CloudCount2::Application.routes.draw do
 
   resources :notes
 
-  resources :sublines
+  resources :budgets do 
 
-  resources :lines
+    resources :notes
 
-  resources :budgets
+    resources :lines do
+      resources :sublines
+    end
+
+    resources :attachments
+
+  end
 
   resources :users
 
