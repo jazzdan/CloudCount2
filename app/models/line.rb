@@ -4,4 +4,6 @@ class Line < ActiveRecord::Base
 
     has_many :sublines
 
+    audited
+
 end

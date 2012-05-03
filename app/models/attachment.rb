@@ -4,4 +4,7 @@ class Attachment < ActiveRecord::Base
   :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",
   # :path => ":attachment/files/:id.:extension",
   :bucket => 'cloudcount'
+
+  audited
+
 end
