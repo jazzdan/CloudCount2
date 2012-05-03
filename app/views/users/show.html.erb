@@ -1,0 +1,11 @@
+
+<label class="label"><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</label>
+<p><%= @user.email %></p>
+
+<label class="label"><%= t("activerecord.attributes.user.password_digest", :default => t("activerecord.labels.password_digest", :default => "Password digest")) %>:</label>
+<p><%= @user.password_digest %></p>
+<div class="actions">
+<%= link_to "Back", users_path, :class => 'btn primary'  %>
+<%= link_to "Edit", edit_user_path(@user), :class => 'btn primary' %>
+<%= link_to "Delete", user_path(@user), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn primary' %>
+</div>
