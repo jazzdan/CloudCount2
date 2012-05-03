@@ -1,4 +1,6 @@
 CloudCount2::Application.routes.draw do
+  resources :budgets
+
   resources :users
 
   # The priority is based upon order of creation:

@@ -1,0 +1,20 @@
+
+<label class="label"><%= t("activerecord.attributes.budget.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</label>
+<p><%= @budget.title %></p>
+
+<label class="label"><%= t("activerecord.attributes.budget.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</label>
+<p><%= @budget.description %></p>
+
+<label class="label"><%= t("activerecord.attributes.budget.starts", :default => t("activerecord.labels.starts", :default => "Starts")) %>:</label>
+<p><%= @budget.starts %></p>
+
+<label class="label"><%= t("activerecord.attributes.budget.ends", :default => t("activerecord.labels.ends", :default => "Ends")) %>:</label>
+<p><%= @budget.ends %></p>
+
+<label class="label"><%= t("activerecord.attributes.budget.rolls", :default => t("activerecord.labels.rolls", :default => "Rolls")) %>:</label>
+<p><%= @budget.rolls %></p>
+<div class="actions">
+<%= link_to "Back", budgets_path, :class => 'btn primary'  %>
+<%= link_to "Edit", edit_budget_path(@budget), :class => 'btn primary' %>
+<%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn primary' %>
+</div>
