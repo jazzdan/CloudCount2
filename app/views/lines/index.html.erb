@@ -1,0 +1,30 @@
+<h1>Lines</h1>
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.line.budget_id", :default => t("activerecord.labels.budget_id", :default => "Budget_id")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lines.each do |line| -%>
+   <tr>
+    <td><%= line.id %></td>
+        <td><%= link_to line.budget_id, line_path(line) %>
+    </td>
+        <td><%= line.created_at %></td>
+    <td>
+      <%= link_to "Show", line_path(line) %>
+      <%= link_to "Edit", edit_line_path(line) %>
+      <%= link_to "Destroy", line_path(line), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_line_path, :class => 'btn primary' %>

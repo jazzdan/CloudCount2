@@ -1,4 +1,6 @@
 CloudCount2::Application.routes.draw do
+  resources :lines
+
   resources :budgets
 
   resources :users

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  budget_id: 1
+  line_number: 1
+  name: MyString
+  subtotal: 1.5
+  type: 
+  order: 1
+
+two:
+  budget_id: 1
+  line_number: 1
+  name: MyString
+  subtotal: 1.5
+  type: 
+  order: 1

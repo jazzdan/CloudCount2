@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503225427) do
+ActiveRecord::Schema.define(:version => 20120503225726) do
 
   create_table "budgets", :force => true do |t|
     t.string   "title"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(:version => 20120503225427) do
     t.integer  "starts"
     t.integer  "ends"
     t.string   "rolls"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "lines", :force => true do |t|
+    t.integer  "budget_id"
+    t.integer  "line_number"
+    t.string   "name"
+    t.float    "subtotal"
+    t.string   "type"
+    t.integer  "order"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
