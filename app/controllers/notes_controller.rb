@@ -2,7 +2,8 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @budget = Budget.includes(:notes).find(params[:budget_id])
+    @notes = @budget.notes
 
     respond_to do |format|
       format.html # index.html.erb
