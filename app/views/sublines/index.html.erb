@@ -1,0 +1,30 @@
+<h1>Sublines</h1>
+<table class="zebra-striped">
+ <thead>
+  <tr>
+    <th>ID</th>
+        <th>
+      <%= t("activerecord.attributes.subline.line_id", :default => t("activerecord.labels.line_id", :default => "Line_id")) %>
+    </th>
+        <th>Created at</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @sublines.each do |subline| -%>
+   <tr>
+    <td><%= subline.id %></td>
+        <td><%= link_to subline.line_id, subline_path(subline) %>
+    </td>
+        <td><%= subline.created_at %></td>
+    <td>
+      <%= link_to "Show", subline_path(subline) %>
+      <%= link_to "Edit", edit_subline_path(subline) %>
+      <%= link_to "Destroy", subline_path(subline), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+    </td>
+    </tr>
+    <% end -%>
+   </tbody>
+</table>
+
+<%= link_to "New", new_subline_path, :class => 'btn primary' %>

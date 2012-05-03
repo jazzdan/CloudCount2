@@ -1,0 +1,46 @@
+
+<div class="clearfix">
+   <%= f.label :line_id, t("activerecord.attributes.subline.line_id", :default => "Line"), :class => :label %>
+  <div class="input">
+    <%= f.number_field :line_id, :class => 'number_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :line_number, t("activerecord.attributes.subline.line_number", :default => "Line number"), :class => :label %>
+  <div class="input">
+    <%= f.number_field :line_number, :class => 'number_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :name, t("activerecord.attributes.subline.name", :default => "Name"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :subtotal, t("activerecord.attributes.subline.subtotal", :default => "Subtotal"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :subtotal, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :type, t("activerecord.attributes.subline.type", :default => "Type"), :class => :label %>
+  <div class="input">
+    <%= f.text_field :type, :class => 'text_field' %>
+  </div>
+</div>
+
+<div class="clearfix">
+   <%= f.label :order, t("activerecord.attributes.subline.order", :default => "Order"), :class => :label %>
+  <div class="input">
+    <%= f.number_field :order, :class => 'number_field' %>
+  </div>
+</div>
+<div class="actions">
+  <button class="btn primary" type="submit">Save</button> or
+	<%= link_to "Cancel", sublines_path %>
+</div>
