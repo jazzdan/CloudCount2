@@ -1,6 +1,6 @@
 class Budget < ActiveRecord::Base
 
-    has_many :notes
+    has_many :notes, :order => "created_at DESC"
 
     has_many :lines
 

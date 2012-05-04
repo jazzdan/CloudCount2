@@ -1,5 +1,12 @@
+<section class="span6">
+
+<h1 class="title">Login</h1>
+
 <%= form_for :session, html: { class: 'form-horizontal' }, :url => sessions_path do |f| %>
   <fieldset>
+
+    <legend>Login to Cloud Count</legend>
+
     <div class="control-group">
       <%= f.label :email, class: 'control-label' %>
       <div class="controls">
@@ -17,3 +24,5 @@
     <%= f.submit "Go!", class: 'btn btn-primary' %>
   </div>
 <% end %>
+
+</section>
