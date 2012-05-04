@@ -16,6 +16,8 @@ class Budget < ActiveRecord::Base
 
     audited
 
+    ROLLS = ['daily', 'weekly', 'monthly', 'quarterly', 'yearly']
+
     def budget
         if @budget_total.nil?
             @budget_total = self.lines.reduce(0) do |sum, lines|
@@ -36,6 +38,30 @@ class Budget < ActiveRecord::Base
 
     def excess
         self.budget - self.actual
+    end
+
+    def category_balanced(cat)
+        self.category_actual(cat) <= self.category_budget(cat)
+    end
+
+    def category_budget(cat)
+        self.lines.reduce(0) do |sum, line|
+            if line.category == cat
+                sum + line.subtotal
+            else
+                sum
+            end
+        end
+    end
+
+    def category_actual(cat)
+        self.lines.reduce(0) do |sum, line|
+            if line.category == cat
+                sum + line.actual
+            else
+                sum
+            end
+        end
     end
 
 end

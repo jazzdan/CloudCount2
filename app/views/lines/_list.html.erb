@@ -1,6 +1,6 @@
 <div class="head">
     <h2 class="pull-left"><%= category.capitalize %></h2>
-    <h2 class="pull-right">0.00/0.00</h2>
+    <h2 class="pull-right <%= "danger" unless @budget.category_balanced(category) %>"><%= number_to_currency(@budget.category_actual(category), :unit => "") %>/<%= number_to_currency(@budget.category_budget(category), :unit => "") %></h2>
 </div>
 
 <div class="controls buffer">
