@@ -8,19 +8,12 @@ class LinesController < ApplicationController
     @subtitle = 'Lines'
   end
 
-  # GET /lines
-  # GET /lines.json
-  def index
-    @budget = Budget.includes(:lines).find(params[:budget_id])
-    @lines = @budget.lines
-    @line = Line.new
-    respond_with(@budget, @lines)
-  end
-
   # GET /lines/1
   # GET /lines/1.json
   def show
     @line = Line.find(params[:id])
+    @budget = @line.budget
+    @subtitle = '%s %d' % [@line.category.capitalize, @line.line_number]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -45,6 +38,7 @@ class LinesController < ApplicationController
   # TODO: Might have to modify this
   def edit
     @line = Line.find(params[:id])
+    @budget = @line.budget
   end
 
   # POST /lines

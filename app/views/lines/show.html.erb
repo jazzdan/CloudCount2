@@ -1,23 +1,36 @@
+<section class="details span12">
 
-<label class="label"><%= t("activerecord.attributes.line.budget_id", :default => t("activerecord.labels.budget_id", :default => "Budget")) %>:</label>
-<p><%= @line.budget_id %></p>
+    <table class="table table-highlight">
 
-<label class="label"><%= t("activerecord.attributes.line.line_number", :default => t("activerecord.labels.line_number", :default => "Line number")) %>:</label>
-<p><%= @line.line_number %></p>
+        <thead>
 
-<label class="label"><%= t("activerecord.attributes.line.name", :default => t("activerecord.labels.name", :default => "Name")) %>:</label>
-<p><%= @line.name %></p>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Budget</th>
+                <th>Actual</th>
+                <th></th>
+            </tr>
 
-<label class="label"><%= t("activerecord.attributes.line.subtotal", :default => t("activerecord.labels.subtotal", :default => "Subtotal")) %>:</label>
-<p><%= @line.subtotal %></p>
+        </thead>
 
-<label class="label"><%= t("activerecord.attributes.line.category", :default => t("activerecord.labels.category", :default => "category")) %>:</label>
-<p><%= @line.category %></p>
+        <tbody>
 
-<label class="label"><%= t("activerecord.attributes.line.order", :default => t("activerecord.labels.order", :default => "Order")) %>:</label>
-<p><%= @line.order %></p>
-<div class="actions">
-<%= link_to "Back", budget_lines_path, :class => 'btn primary'  %>
-<%= link_to "Edit", edit_line_path(@line), :class => 'btn primary' %>
-<%= link_to "Delete", line_path(@line), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn primary' %>
-</div>
+            <tr>
+                <td><%= @line.line_number %></td>
+                <td><%= @line.name %></td>
+                <td><%= @line.category.capitalize %></td>
+                <td><%= number_to_currency(@line.subtotal, :unit => "") %></td>
+                <td><%= number_to_currency(@line.actual, :unit => "") %></td>
+                <td class="controls">
+                    <%= link_to "Edit", edit_budget_line_path(@budget, @line) %>
+                    <%= link_to "Delete", budget_line_path(@budget, @line), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'danger' %>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</section>
