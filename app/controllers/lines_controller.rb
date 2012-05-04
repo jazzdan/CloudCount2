@@ -47,10 +47,11 @@ class LinesController < ApplicationController
   def create
     @line = Line.new(params[:line])
     @line.budget_id = params[:budget_id]
+    @budget = @line.budget
 
     respond_to do |format|
       if @line.save
-        format.html { redirect_to budget_lines_path, notice: 'Line was successfully created.' }
+        format.html { redirect_to budget_lines_path(@budget), notice: 'Line was successfully created.' }
         format.json { render json: @line, status: :created, location: @line }
       else
         format.html { render action: "new" }
@@ -64,10 +65,11 @@ class LinesController < ApplicationController
   # TODO: Might have to modify this
   def update
     @line = Line.find(params[:id])
+    @budget = @line.budget
 
     respond_to do |format|
       if @line.update_attributes(params[:line])
-        format.html { redirect_to @line, notice: 'Line was successfully updated.' }
+        format.html { redirect_to budget_line_path(@budget, @line), notice: 'Line was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
