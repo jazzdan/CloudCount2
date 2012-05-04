@@ -1,28 +1,31 @@
 <h1>Notes</h1>
 
 <!-- new note -->
-<%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => :form } do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f} %>
+<%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline' } do |f| -%>
+  
+  <%= f.text_field :title, :class => 'text_field', :placeholder => 'title' %>
+
+  <%= f.text_field :contents, :class => 'text_field', :placeholder => 'note...' %>
+
+  <button class="btn primary" type="submit">Add</button>
+
 <% end -%>
 
 <table class="table table-striped">
  <thead>
   <tr>
-    <th>ID</th>
-        <th>
+    <th>
       <%= t("activerecord.attributes.note.title", :default => t("activerecord.labels.title", :default => "Title")) %>
     </th>
-        <th>Created at</th>
+    <th>Created at</th>
     <th>Actions</th>
   </tr>
   </thead>
   <tbody>
   <% @notes.each do |note| -%>
    <tr>
-    <td><%= note.id %></td>
-        <td><%= note.title %>
-    </td>
-        <td><%= note.created_at %></td>
+    <td><%= note.title %></td>
+    <td><%= note.created_at %></td>
     <td>
       <%= link_to "Destroy", note_path(note), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
     </td>
