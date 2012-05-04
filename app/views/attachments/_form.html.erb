@@ -1,46 +1,36 @@
+<fieldset>
 
-<div class="clearfix">
-   <%= f.label :budget_id, t("activerecord.attributes.attachment.budget_id", :default => "Budget"), :class => :label %>
-  <div class="input">
-    <%= f.number_field :budget_id, :class => 'number_field' %>
-  </div>
-</div>
+    <div class="control-group">
+       <%= f.label :name, t("activerecord.attributes.attachment.name", :default => "Name"), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :name, t("activerecord.attributes.attachment.name", :default => "Name"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :name, :class => 'text_field' %>
-  </div>
-</div>
+    <div class="control-group">
+       <%= f.label :label, t("activerecord.attributes.attachment.label", :default => "Label"), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :label, :class => 'text_field' %>
+      </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :label, t("activerecord.attributes.attachment.label", :default => "Label"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :label, :class => 'text_field' %>
-  </div>
-</div>
+    <div class="control-group">
+       <%= f.label :description, t("activerecord.attributes.attachment.description", :default => "Description"), :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :description, :class => 'text_field' %>
+      </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :description, t("activerecord.attributes.attachment.description", :default => "Description"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :description, :class => 'text_field' %>
-  </div>
-</div>
+    <div class="control-group">
+      <%= f.label :file, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :file %>
+      </div>
+    </div>
 
-<div class="clearfix">
-  <%= f.label :file, :class => :label %>
-  <div class="input">
-    <%= f.file_field :file %>
-  </div>
-</div>
+</fieldset>
 
-<div class="clearfix">
-   <%= f.label :user_id, t("activerecord.attributes.attachment.user_id", :default => "User"), :class => :label %>
-  <div class="input">
-    <%= f.number_field :user_id, :class => 'number_field' %>
-  </div>
-</div>
-<div class="actions">
-  <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", budget_attachments_path %>
+<div class="form-actions">
+  <button class="btn btn-primary" type="submit">Save</button> or
+	<%= link_to "Cancel", budget_attachments_path, :class => 'danger' %>
 </div>

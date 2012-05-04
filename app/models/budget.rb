@@ -12,7 +12,7 @@ class Budget < ActiveRecord::Base
         :conditions => { :category => 'expenses' },
         :order => 'line_number ASC'
 
-    has_many :attachments, :dependent => :destroy
+    has_many :attachments, :order => 'created_at DESC', :dependent => :destroy
 
     audited
 

@@ -6,14 +6,18 @@
    <thead>
     <tr>
       <th>Name</th>
-      <th>Created at</th>
-      <th>Actions</th>
+      <th>Label</th>
+      <th>Description</th>
+      <th>Uploaded</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
     <% @attachments.each do |attachment| -%>
      <tr>
-       <td><%= attachment.name %></td>
+      <td><%= attachment.name %></td>
+      <td><%= attachment.label %></td>
+      <td><%= attachment.description %></td>
       <td><%= attachment.created_at %></td>
       <td class="controls">
         <%= link_to "Show", attachment.file.url %> 
