@@ -2,7 +2,7 @@ class Subline < ActiveRecord::Base
 
     belongs_to :line
 
-    has_many :transactions, :order => 'created_at DESC'
+    has_many :transactions, :order => 'created_at DESC', :dependent => :destroy
 
     audited
 

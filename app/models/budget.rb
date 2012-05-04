@@ -1,8 +1,8 @@
 class Budget < ActiveRecord::Base
 
-    has_many :notes, :order => "created_at DESC"
+    has_many :notes, :order => "created_at DESC", :dependent => :destroy
 
-    has_many :lines
+    has_many :lines, :dependent => :destroy
 
     has_many :incomes, :class_name => "Line",
         :conditions => { :category => 'incomes' },
@@ -12,7 +12,7 @@ class Budget < ActiveRecord::Base
         :conditions => { :category => 'expenses' },
         :order => 'line_number ASC'
 
-    has_many :attachments
+    has_many :attachments, :dependent => :destroy
 
     audited
 
