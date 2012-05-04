@@ -48,7 +48,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to index }
+      format.html { redirect_to budget_notes_path }
       format.json { head :no_content }
     end
   end
