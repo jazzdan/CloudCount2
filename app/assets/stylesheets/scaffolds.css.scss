@@ -18,3 +18,36 @@
 .table .controls {
     text-align: right;
 }
+.table .controls > a {
+    margin-left: 1em;
+}
+
+/* table-highlight */
+
+.table-highlight th {
+  font-weight: normal;
+}
+.table-highlight td {
+  border: none;
+  font-weight: bold;
+  background: #eee;
+  font-size: 1.3em;
+  padding: 20px 8px;
+}
+.table-highlight tr:hover td {
+  border-bottom: 0;
+}
+.table-highlight tr th:first-child {
+  padding-left: 20px;
+}
+.table-highlight tr th:last-child {
+  padding-right: 20px;
+}
+.table-highlight tr td:first-child {
+  padding-left: 20px;
+  border-radius: 4px 0 0 4px;
+}
+.table-highlight tr td:last-child {
+  padding-right: 20px;
+  border-radius: 0 4px 4px 0;
+}

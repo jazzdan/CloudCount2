@@ -1,39 +1,45 @@
 
-<div class="clearfix">
-   <%= f.label :title, t("activerecord.attributes.budget.title", :default => "Title"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :title, :class => 'text_field' %>
-  </div>
-</div>
+<fieldset>
 
-<div class="clearfix">
-   <%= f.label :description, t("activerecord.attributes.budget.description", :default => "Description"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :description, :class => 'text_field' %>
-  </div>
-</div>
+    <div class="control-group">
+        <%= f.label :title, t("activerecord.attributes.budget.title", :default => "Title"), :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :title, :class => 'text_field' %>
+        </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :starts, t("activerecord.attributes.budget.starts", :default => "Starts"), :class => :label %>
-  <div class="input">
-    <%= f.number_field :starts, :class => 'number_field' %>
-  </div>
-</div>
+    <div class="control-group">
+        <%= f.label :description, t("activerecord.attributes.budget.description", :default => "Description"), :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :description, :class => 'text_field' %>
+        </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :ends, t("activerecord.attributes.budget.ends", :default => "Ends"), :class => :label %>
-  <div class="input">
-    <%= f.number_field :ends, :class => 'number_field' %>
-  </div>
-</div>
+    <div class="control-group">
+        <%= f.label :starts, t("activerecord.attributes.budget.starts", :default => "Starts"), :class => 'control-label' %>
+        <div class="controls">
+            <%= f.number_field :starts, :class => 'number_field' %>
+        </div>
+    </div>
 
-<div class="clearfix">
-   <%= f.label :rolls, t("activerecord.attributes.budget.rolls", :default => "Rolls"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :rolls, :class => 'text_field' %>
-  </div>
-</div>
-<div class="actions">
-  <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", budgets_path %>
+    <div class="control-group">
+        <%= f.label :ends, t("activerecord.attributes.budget.ends", :default => "Ends"), :class => 'control-label' %>
+        <div class="controls">
+            <%= f.number_field :ends, :class => 'number_field' %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <%= f.label :rolls, t("activerecord.attributes.budget.rolls", :default => "Rolls"), :class => 'control-label' %>
+        <div class="controls">
+            <%= f.text_field :rolls, :class => 'text_field' %>
+        </div>
+    </div>
+
+</fieldset>
+
+
+<div class="form-actions">
+    <button class="btn primary" type="submit">Save</button> or
+    <%= link_to "Cancel", budgets_path, :class => 'danger' %>
 </div>
