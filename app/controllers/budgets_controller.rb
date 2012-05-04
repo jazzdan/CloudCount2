@@ -20,7 +20,7 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
-    @budget = Budget.find(params[:id])
+    @budget = Budget.includes(:incomes, :expenses).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
