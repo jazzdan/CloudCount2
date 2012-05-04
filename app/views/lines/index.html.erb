@@ -18,7 +18,7 @@
     </td>
         <td><%= line.created_at %></td>
     <td>
-      <%= link_to "Show", line_path(line) %>
+      <%= link_to "Show", budget_line_path(@budget, line) %>
       <%= link_to "Edit", edit_line_path(line) %>
       <%= link_to "Destroy", line_path(line), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
     </td>
@@ -27,4 +27,4 @@
    </tbody>
 </table>
 
-<%= link_to "New", new_line_path, :class => 'btn primary' %>
+<%= link_to "New", new_budget_line_path, :class => 'btn primary' %>

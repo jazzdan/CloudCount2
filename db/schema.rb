@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504000751) do
+ActiveRecord::Schema.define(:version => 20120504030732) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20120504000751) do
     t.integer  "line_number"
     t.string   "name"
     t.float    "subtotal"
-    t.string   "type"
+    t.string   "category"
     t.integer  "order"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120504000751) do
     t.integer  "line_number"
     t.string   "name"
     t.float    "subtotal"
-    t.string   "type"
+    t.string   "category"
     t.integer  "order"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

@@ -1,13 +1,16 @@
 class LinesController < ApplicationController
+  
+  respond_to :html, :json
+
   # GET /lines
   # GET /lines.json
   def index
     @lines = Line.all
+    @budget = Budget.includes(:lines).find(params[:budget_id])
+    @lines = @budget.lines
+    @line = Line.new
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @lines }
-    end
+    respond_with(@budget, @lines)
   end
 
   # GET /lines/1
@@ -24,6 +27,7 @@ class LinesController < ApplicationController
   # GET /lines/new
   # GET /lines/new.json
   def new
+    @budget = Budget.find(params[:budget_id])
     @line = Line.new
 
     respond_to do |format|
@@ -33,6 +37,7 @@ class LinesController < ApplicationController
   end
 
   # GET /lines/1/edit
+  # TODO: Might have to modify this
   def edit
     @line = Line.find(params[:id])
   end
@@ -41,10 +46,11 @@ class LinesController < ApplicationController
   # POST /lines.json
   def create
     @line = Line.new(params[:line])
+    @line.budget_id = params[:budget_id]
 
     respond_to do |format|
       if @line.save
-        format.html { redirect_to @line, notice: 'Line was successfully created.' }
+        format.html { redirect_to budget_lines_path, notice: 'Line was successfully created.' }
         format.json { render json: @line, status: :created, location: @line }
       else
         format.html { render action: "new" }
@@ -55,6 +61,7 @@ class LinesController < ApplicationController
 
   # PUT /lines/1
   # PUT /lines/1.json
+  # TODO: Might have to modify this
   def update
     @line = Line.find(params[:id])
 
@@ -76,7 +83,7 @@ class LinesController < ApplicationController
     @line.destroy
 
     respond_to do |format|
-      format.html { redirect_to lines_url }
+      format.html { redirect_to budget_lines_path(@line.budget) }
       format.json { head :no_content }
     end
   end
