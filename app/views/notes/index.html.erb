@@ -29,7 +29,7 @@
     <td><%= note.contents %></td>
     <td><%= note.created_at %></td>
     <td class="controls">
-      <%= link_to "Destroy", "/budgets/%d/notes/%d"%[@budget.id, note.id], :class => 'danger', :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      <%= link_to "Destroy", budget_note_path(@budget, note), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
     </td>
     </tr>
     <% end -%>

@@ -3,7 +3,7 @@
 <head>
   <title>CloudCount2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <!--<%= javascript_include_tag "application" %>-->
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -60,10 +60,15 @@
     </h1>
 
     <ul class="nav nav-pills pull-right">
+
       <li class="<%= "active" if @subtitle == 'Budget' %>"><%= link_to "Budget", budget_path(@budget) %></li>
+
       <li class="<%= "active" if @subtitle == 'Notes' %>"><%= link_to "Notes", budget_notes_path(@budget) %></li>
+
       <li class="<%= "active" if @subtitle == 'Attachments' %>"><%= link_to "Attachments", budget_attachments_path(@budget) %></li>
+
       <li class="<%= "active" if @subtitle == 'Audit' %>"><%= link_to "Audit", '/audit' %></li>
+
     </ul>
 
 </header>
@@ -71,7 +76,7 @@
 <% end %>
 
 <% if flash[:notice] || flash[:error] %>
-  <div id="status_bar" class="container">
+  <div id="status_bar" class="span12 container">
     <%= render :partial => 'shared/flash_bar' %>
   </div>
 <% end %>
