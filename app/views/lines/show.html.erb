@@ -21,7 +21,7 @@
                 <td><%= @line.line_number %></td>
                 <td><%= @line.name %></td>
                 <td><%= @line.category.capitalize %></td>
-                <td><%= number_to_currency(@line.subtotal, :unit => "") %></td>
+                <td><%= number_to_currency(@line.budget_total, :unit => "") %></td>
                 <td><%= number_to_currency(@line.actual, :unit => "") %></td>
                 <td class="controls">
                     <%= link_to "Edit", edit_budget_line_path(@budget, @line) %>

@@ -2,6 +2,10 @@ class SublinesController < ApplicationController
   
   respond_to :html, :json
   
+  def setup
+    @subtitle = 'Sublines'
+  end
+
   # GET /sublines
   # GET /sublines.json
   def index

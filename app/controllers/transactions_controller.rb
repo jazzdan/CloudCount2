@@ -2,6 +2,10 @@ class TransactionsController < ApplicationController
   
   respond_to :html, :json
 
+  def setup
+    @subtitle = 'Transactions'
+  end
+
   # GET /transactions/new
   # GET /transactions/new.json
   def new

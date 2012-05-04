@@ -9,8 +9,22 @@ class Line < ActiveRecord::Base
 
     audited
 
+    def budget_total
+        if @budget_total.nil?
+            @budget_total = self.sublines.reduce(0) do |sum, subline|
+                sum + subline.subtotal
+            end
+        end
+        @budget_total
+    end
+
     def actual
-        return 0.00
+        if @actual_total.nil?
+            @actual_total = self.sublines.reduce(0) do |sum, subline|
+                sum + subline.actual
+            end
+        end
+        @actual_total
     end
 
 end

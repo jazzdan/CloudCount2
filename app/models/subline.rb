@@ -7,7 +7,12 @@ class Subline < ActiveRecord::Base
     audited
 
     def actual
-        return 0.00
+        if @actual_total.nil?
+            @actual_total = self.transactions.reduce(0) do |sum, transaction|
+                sum + transaction.subtotal
+            end
+        end
+        @actual_total
     end
 
 end

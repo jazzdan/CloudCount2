@@ -11,7 +11,7 @@ class LinesController < ApplicationController
   # GET /lines/1
   # GET /lines/1.json
   def show
-    @line = Line.find(params[:id])
+    @line = Line.includes({:sublines => :transactions}).find(params[:id])
     @budget = @line.budget
     @subtitle = '%s %d' % [@line.category.capitalize, @line.line_number]
 
