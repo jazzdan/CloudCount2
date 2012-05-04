@@ -40,7 +40,9 @@
 
 <!-- content -->
 <div id="main" role="main" class="container">
+<%= @current_user %>
 
+      <%= @current_user.display_name if @current_user %>
 <%= yield %>
 
 </div>

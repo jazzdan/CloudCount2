@@ -1,4 +1,7 @@
 CloudCount2::Application.routes.draw do
+
+  resources :sessions
+
   resources :attachments
 
   resources :transactions

@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 
   # Verifies a given password is equivalent to a user's password
   def has_password? (submitted_password)
-    password == encrypt(submitted_password)
+    password_digest == encrypt(submitted_password)
   end
 
   private
@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   def encrypt_password
     if new_record?
       self.salt = make_salt
-      self.password = encrypt(password)
+      self.password_digest = encrypt(password_digest)
     end
   end
 
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
 
   # returns a new salt based on the current time and the user's submitted password
   def make_salt
-    secure_hash("#{Time.now.utc}--#{password}")
+    secure_hash("#{Time.now.utc}--#{password_digest}")
   end
 
   # encrypts a string with SHA2 encryption
