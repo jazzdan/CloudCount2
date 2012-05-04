@@ -1,6 +1,7 @@
-<section class="form span12">
+<section class="form span7">
 
     <%= form_for [@line,@subline], :url => line_sublines_path, :html => { :class => 'form-horizontal' } do |f| -%>
+        <legend>New Subline</legend>
         <%= render :partial => "form", :locals => {:f => f} %>
     <% end -%>
 

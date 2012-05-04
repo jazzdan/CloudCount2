@@ -1,7 +1,8 @@
-<section class="form span12">
+<section class="form span7">
 
     <%= form_for @subline, :url => line_subline_path(@line, @subline), :html => { :class => "edit_subline form-horizontal", :id => "edit_subline" } do |f| -%>
       <input name="_method" type="hidden" value="put" />
+      <legend>Edit Subline - "<%= @subline.name %>"</legend>
       <%= render :partial => "form", :locals => {:f => f} %>
     <% end -%>
 
