@@ -2,6 +2,19 @@
   margin-top: 20px;
 }
 
-table td {
+.title {
+    margin-bottom: 24px;
+}
+
+.danger,
+.danger:hover {
+    color: #C43C35;
+}
+
+.table td {
     vertical-align: middle;
+}
+
+.table .controls {
+    text-align: right;
 }
