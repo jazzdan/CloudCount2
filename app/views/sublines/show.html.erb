@@ -11,13 +11,13 @@
 <label class="label"><%= t("activerecord.attributes.subline.subtotal", :default => t("activerecord.labels.subtotal", :default => "Subtotal")) %>:</label>
 <p><%= @subline.subtotal %></p>
 
-<label class="label"><%= t("activerecord.attributes.subline.type", :default => t("activerecord.labels.type", :default => "Type")) %>:</label>
-<p><%= @subline.type %></p>
+<label class="label"><%= t("activerecord.attributes.subline.category", :default => t("activerecord.labels.category", :default => "category")) %>:</label>
+<p><%= @subline.category %></p>
 
 <label class="label"><%= t("activerecord.attributes.subline.order", :default => t("activerecord.labels.order", :default => "Order")) %>:</label>
 <p><%= @subline.order %></p>
 <div class="actions">
-<%= link_to "Back", sublines_path, :class => 'btn primary'  %>
+<%= link_to "Back", line_sublines_path, :class => 'btn primary'  %>
 <%= link_to "Edit", edit_subline_path(@subline), :class => 'btn primary' %>
 <%= link_to "Delete", subline_path(@subline), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn primary' %>
 </div>

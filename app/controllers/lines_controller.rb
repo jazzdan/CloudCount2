@@ -11,7 +11,6 @@ class LinesController < ApplicationController
   # GET /lines
   # GET /lines.json
   def index
-    @lines = Line.all
     @budget = Budget.includes(:lines).find(params[:budget_id])
     @lines = @budget.lines
     @line = Line.new

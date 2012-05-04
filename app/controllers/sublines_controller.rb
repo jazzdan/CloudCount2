@@ -1,13 +1,15 @@
 class SublinesController < ApplicationController
+  
+  respond_to :html, :json
+  
   # GET /sublines
   # GET /sublines.json
   def index
-    @sublines = Subline.all
+    @line = Line.includes(:sublines).find(params[:line_id])
+    @sublines = @line.sublines
+    @subline = Subline.new
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @sublines }
-    end
+    respond_with(@budget, @lines)
   end
 
   # GET /sublines/1
@@ -24,6 +26,7 @@ class SublinesController < ApplicationController
   # GET /sublines/new
   # GET /sublines/new.json
   def new
+    @line = Line.find(params[:line_id])
     @subline = Subline.new
 
     respond_to do |format|
@@ -41,10 +44,12 @@ class SublinesController < ApplicationController
   # POST /sublines.json
   def create
     @subline = Subline.new(params[:subline])
+    @subline.line_id = params[:line_id]
+    @line = @subline.line
 
     respond_to do |format|
       if @subline.save
-        format.html { redirect_to @subline, notice: 'Subline was successfully created.' }
+        format.html { redirect_to subline_path(@subline), notice: 'Subline was successfully created.' }
         format.json { render json: @subline, status: :created, location: @subline }
       else
         format.html { render action: "new" }
@@ -57,10 +62,11 @@ class SublinesController < ApplicationController
   # PUT /sublines/1.json
   def update
     @subline = Subline.find(params[:id])
+    @line = @subline.budget
 
     respond_to do |format|
       if @subline.update_attributes(params[:subline])
-        format.html { redirect_to @subline, notice: 'Subline was successfully updated.' }
+        format.html { redirect_to line_subline_path(@line, @subline), notice: 'Subline was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +82,7 @@ class SublinesController < ApplicationController
     @subline.destroy
 
     respond_to do |format|
-      format.html { redirect_to sublines_url }
+      format.html { redirect_to line_sublines_path(@subline.line) }
       format.json { head :no_content }
     end
   end

@@ -16,7 +16,7 @@ CloudCount2::Application.routes.draw do
   resources :budgets do 
 
     resources :lines
-    
+
     resources :notes
 
     resources :attachments

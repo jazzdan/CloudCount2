@@ -20,11 +20,11 @@
     <td>
       <%= link_to "Show", subline_path(subline) %>
       <%= link_to "Edit", edit_subline_path(subline) %>
-      <%= link_to "Destroy", subline_path(subline), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      <%= link_to "Destroy", line_sublines_path(@line), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
     </td>
     </tr>
     <% end -%>
    </tbody>
 </table>
 
-<%= link_to "New", new_subline_path, :class => 'btn primary' %>
+<%= link_to "New", new_line_subline_path, :class => 'btn primary' %>

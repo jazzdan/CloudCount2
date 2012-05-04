@@ -1,8 +1,13 @@
 class TransactionsController < ApplicationController
+  
+  respond_to :html, :json
+  
   # GET /transactions
   # GET /transactions.json
   def index
     @transactions = Transaction.all
+    @subline = Subline.includes(:transactions).find(params[:transaction_id])
+    @transaction = Transaction.new
 
     respond_to do |format|
       format.html # index.html.erb
