@@ -49,7 +49,7 @@ class SublinesController < ApplicationController
 
     respond_to do |format|
       if @subline.save
-        format.html { redirect_to subline_path(@subline), notice: 'Subline was successfully created.' }
+        format.html { redirect_to line_subline_path(@line, @subline), notice: 'Subline was successfully created.' }
         format.json { render json: @subline, status: :created, location: @subline }
       else
         format.html { render action: "new" }
