@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120504000751) do
+=======
+ActiveRecord::Schema.define(:version => 20120503235529) do
+>>>>>>> 5dd7d68e587a1debde68546f1afd1c2f6d5a2043
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
@@ -26,6 +30,27 @@ ActiveRecord::Schema.define(:version => 20120504000751) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
   end
+
+  create_table "audits", :force => true do |t|
+    t.integer  "auditable_id"
+    t.string   "auditable_type"
+    t.integer  "associated_id"
+    t.string   "associated_type"
+    t.integer  "user_id"
+    t.string   "user_type"
+    t.string   "username"
+    t.string   "action"
+    t.text     "audited_changes"
+    t.integer  "version",         :default => 0
+    t.string   "comment"
+    t.string   "remote_address"
+    t.datetime "created_at"
+  end
+
+  add_index "audits", ["associated_id", "associated_type"], :name => "associated_index"
+  add_index "audits", ["auditable_id", "auditable_type"], :name => "auditable_index"
+  add_index "audits", ["created_at"], :name => "index_audits_on_created_at"
+  add_index "audits", ["user_id", "user_type"], :name => "user_index"
 
   create_table "budgets", :force => true do |t|
     t.string   "title"

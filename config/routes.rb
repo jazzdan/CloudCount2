@@ -1,12 +1,19 @@
 CloudCount2::Application.routes.draw do
 
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
+  match 'logout', to: 'sessions#destroy', as: :logout
+  match 'login', to: 'sessions#new', as: :login
 
   resources :attachments
 
+  resources :notes
+
   resources :transactions
 
-  resources :notes
+  resources :lines
+
+  resources :sublines
+
 
   resources :budgets do 
 
@@ -21,6 +28,7 @@ CloudCount2::Application.routes.draw do
   end
 
   resources :users
+  match 'signup', to: 'users#new', as: :signup
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -4,4 +4,6 @@ class Subline < ActiveRecord::Base
 
     has_many :transactions
 
+    audited
+
 end

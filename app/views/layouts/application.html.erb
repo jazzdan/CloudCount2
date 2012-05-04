@@ -16,23 +16,33 @@
       <!-- title -->
       <a class="brand" href="/">Cloud Count</a>
 
-      <!-- nav
+
+      <!-- nav -->
       <ul class="nav">
+
         <li><a href="/">Budgets</a></li>
-       -->
 
-      <!-- search
-      <form class="navbar-search pull-left" action="">
-        <input type="text" class="search-query span2" placeholder="Search">
-      </form>
-      -->
+        <li>
+          <!-- search -->
+          <form class="navbar-search pull-left" action="">
+            <input type="text" class="search-query span2" placeholder="Search">
+          </form>
+        </li>
+      </ul>
 
-      <!-- settings
+      <!-- settings -->
       <ul class="nav pull-right">
-        <li class="dropdown"><a href="/users" class="dropdown-toggle" data-bypass="true">Users</a></li>
-        <li><a href="/settings"  data-bypass="true">Settings</a></li>
-        <li><a href="@{Secure.logout()}" data-bypass="true">Logout</a></li>
-       <li class="<%= controller.controller_path == 'attachments' ? 'active' : '' %>"><a href="<%= attachments_path %>">Attachments</a></li></ul> -->
+        <% if @current_user %>
+          <li><%= @current_user.display_name if @current_user %></li>
+          <li><a href="@{Secure.logout()}" data-bypass="true">Logout</a></li>
+          <li class="dropdown"><a href="/users" class="dropdown-toggle" data-bypass="true">Users</a></li>
+          <li><a href="/settings"  data-bypass="true">Settings</a></li>
+          <li class="<%= controller.controller_path == 'attachments' ? 'active' : '' %>"><a href="<%= attachments_path %>">Attachments</a></li>
+        <% else %>
+          <li><%= link_to 'Login', login_path, class: 'login_link' %></li><li><%= link_to 'Signup', signup_path %></li>
+        </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
@@ -40,9 +50,13 @@
 
 <!-- content -->
 <div id="main" role="main" class="container">
-<%= @current_user %>
 
-      <%= @current_user.display_name if @current_user %>
+<% if flash[:notice] || flash[:error] %>
+  <div id="status_bar" class="container">
+    <%= render :partial => 'shared/flash_bar' %>
+  </div>
+<% end %>
+
 <%= yield %>
 
 </div>
