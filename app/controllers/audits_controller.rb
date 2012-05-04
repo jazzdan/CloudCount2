@@ -1,7 +1,7 @@
 class AuditsController < ApplicationController
 
   def index
-    @audits = Audit.all
+    @audits = Audit.all(:order => 'created_at DESC')
   end
 
   def show
