@@ -1,4 +1,4 @@
-<h1 class="title">Notes</h1>
+<h1 class="title"><%= link_to @budget.title, '/budgets/%d'%[@budget.id] %> <small>Notes</small></h1>
 
 <!-- new note -->
 <%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline' } do |f| -%>

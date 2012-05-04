@@ -1,20 +1,27 @@
+<h1><%= link_to @budget.title, budget_path(@budget) %></h1>
 
-<label class="label"><%= t("activerecord.attributes.budget.title", :default => t("activerecord.labels.title", :default => "Title")) %>:</label>
-<p><%= @budget.title %></p>
+<table class="table table-highlight">
 
-<label class="label"><%= t("activerecord.attributes.budget.description", :default => t("activerecord.labels.description", :default => "Description")) %>:</label>
-<p><%= @budget.description %></p>
+    <thead>
 
-<label class="label"><%= t("activerecord.attributes.budget.starts", :default => t("activerecord.labels.starts", :default => "Starts")) %>:</label>
-<p><%= @budget.starts %></p>
+        <tr>
+            <th>Title</th>
+            <th>Budget</th>
+            <th>Starts</th>
+            <th>Ends</th>
+        </tr>
 
-<label class="label"><%= t("activerecord.attributes.budget.ends", :default => t("activerecord.labels.ends", :default => "Ends")) %>:</label>
-<p><%= @budget.ends %></p>
+    </thead>
 
-<label class="label"><%= t("activerecord.attributes.budget.rolls", :default => t("activerecord.labels.rolls", :default => "Rolls")) %>:</label>
-<p><%= @budget.rolls %></p>
-<div class="actions">
-<%= link_to "Back", budgets_path, :class => 'btn primary'  %>
-<%= link_to "Edit", edit_budget_path(@budget), :class => 'btn primary' %>
-<%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'btn primary' %>
-</div>
+    <tbody>
+
+        <tr>
+            <td><%= @budget.title %></td>
+            <td></td>
+            <td><%= @budget.starts %></td>
+            <td><%= @budget.ends %></td>
+        </tr>
+
+    </tbody>
+
+</table>
