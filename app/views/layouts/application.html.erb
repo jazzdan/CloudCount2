@@ -53,7 +53,7 @@
 <header class="span12">
 
     <h1 class="title pull-left">
-      <%= link_to @budget.title, budget_path(@budget) %>
+      <%= link_to @budget.title, budget_path(@budget), :title => '"' + @budget.title + '" Home' %>
       <% if @subtitle %>
       <small><%= @subtitle %></small>
       <% end %>
