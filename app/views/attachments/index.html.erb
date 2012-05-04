@@ -1,29 +1,22 @@
 <section class="span12">
 
-  <%= link_to "Upload Attachment", new_attachment_path, :class => 'btn btn-primary' %>
+  <%= link_to "Upload Attachment", new_budget_attachment_path(@budget), :class => 'btn' %>
 
   <table class="table table-striped">
    <thead>
     <tr>
-      <th>ID</th>
-          <th>
-        <%= t("activerecord.attributes.attachment.budget_id", :default => t("activerecord.labels.budget_id", :default => "Budget_id")) %>
-      </th>
-          <th>Created at</th>
+      <th>Name</th>
+      <th>Created at</th>
       <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <% @attachments.each do |attachment| -%>
      <tr>
-      <td><%= attachment.id %></td>
-          <td><%= link_to attachment.budget_id, attachment_path(attachment) %>
-      </td>
-          <td><%= attachment.created_at %></td>
-      <td>
-        <%= link_to "Show", attachment_path(attachment) %>
-        <%= link_to "Edit", edit_attachment_path(attachment) %>
-        <%= link_to "Destroy", attachment_path(attachment), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+      <td>name goes here...</td>
+      <td><%= attachment.created_at %></td>
+      <td class="controls">
+        <%= link_to "Destroy", budget_attachment_path(@budget, attachment), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </td>
       </tr>
       <% end -%>
