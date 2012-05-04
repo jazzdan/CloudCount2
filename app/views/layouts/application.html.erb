@@ -48,7 +48,7 @@
 
 <div class="row">
 
-<% if @budget %>
+<% unless @budget.nil? || @budget.id.nil? %>
 
 <header class="span12">
 
