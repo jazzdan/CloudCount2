@@ -17,15 +17,25 @@ class Budget < ActiveRecord::Base
     audited
 
     def budget
-        return 0.00
+        if @budget_total.nil?
+            @budget_total = self.lines.reduce(0) do |sum, lines|
+                sum + lines.subtotal
+            end
+        end
+        @budget_total
     end
 
     def actual
-        return 0.00
+        if @actual.nil?
+            @actual = self.lines.reduce(0) do |sum, lines|
+                sum + lines.actual
+            end
+        end
+        @actual
     end
 
     def excess
-        return 0.00
+        self.budget - self.actual
     end
 
 end

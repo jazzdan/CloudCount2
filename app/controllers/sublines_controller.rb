@@ -46,7 +46,7 @@ class SublinesController < ApplicationController
     @subline = Subline.new(params[:subline])
     @subline.line_id = params[:line_id]
     @line = @subline.line
-    @budget = @line.budget
+    @budget = @subline.line.budget
 
     respond_to do |format|
       if @subline.save
@@ -63,7 +63,7 @@ class SublinesController < ApplicationController
   # PUT /sublines/1.json
   def update
     @subline = Subline.find(params[:id])
-    @line = @subline.budget
+    @line = @subline.line
     @budget = @line.budget
 
     respond_to do |format|
