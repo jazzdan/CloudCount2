@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
 # use in a before_filter to require that a user is logged in to access the specified actions
  def require_login
-   redirect_away(login_path, notice: make_response('info', 'Please login first')) unless is_logged?
+   redirect_to(login_path, notice: "Please login") unless is_logged?
  end
 
  # use in a before_filter to require that a user is not logged in to access the specified actions

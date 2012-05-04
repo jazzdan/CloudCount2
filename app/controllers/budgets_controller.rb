@@ -1,6 +1,7 @@
 class BudgetsController < ApplicationController
 
   before_filter :setup
+  before_filter :require_login
 
   def setup
     @subtitle = 'Budget'

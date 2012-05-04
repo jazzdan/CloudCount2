@@ -3,6 +3,7 @@ class LinesController < ApplicationController
   respond_to :html, :json
 
   before_filter :setup
+  before_filter :require_login
 
   def setup
     @subtitle = 'Lines'

@@ -1,5 +1,8 @@
 class SublinesController < ApplicationController
   
+  before_filter :setup
+  before_filter :require_login
+
   respond_to :html, :json
   
   def setup
