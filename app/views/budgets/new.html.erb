@@ -1,5 +1,9 @@
-<h1 class="title">New Budget</h1>
+<section class="form span12">
 
-<%= form_for @budget, :url => budgets_path, :html => { :class => 'form-horizontal' } do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+    <h1 class="title">New Budget</h1>
+
+    <%= form_for @budget, :url => budgets_path, :html => { :class => 'form-horizontal' } do |f| -%>
+      <%= render :partial => "form", :locals => {:f => f} %>
+    <% end -%>
+
+</section>

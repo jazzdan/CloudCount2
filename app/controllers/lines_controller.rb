@@ -33,6 +33,7 @@ class LinesController < ApplicationController
   def new
     @budget = Budget.find(params[:budget_id])
     @line = Line.new
+    @line.category = params[:category]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -55,7 +56,7 @@ class LinesController < ApplicationController
 
     respond_to do |format|
       if @line.save
-        format.html { redirect_to budget_lines_path(@budget), notice: 'Line was successfully created.' }
+        format.html { redirect_to budget_path(@budget), notice: 'Line was successfully created.' }
         format.json { render json: @line, status: :created, location: @line }
       else
         format.html { render action: "new" }
@@ -73,7 +74,7 @@ class LinesController < ApplicationController
 
     respond_to do |format|
       if @line.update_attributes(params[:line])
-        format.html { redirect_to budget_line_path(@budget, @line), notice: 'Line was successfully updated.' }
+        format.html { redirect_to budget_path(@budget), notice: 'Line was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -89,7 +90,7 @@ class LinesController < ApplicationController
     @line.destroy
 
     respond_to do |format|
-      format.html { redirect_to budget_lines_path(@line.budget) }
+      format.html { redirect_to budget_path(@line.budget) }
       format.json { head :no_content }
     end
   end

@@ -76,56 +76,29 @@ body {
 .seesaw tr:hover td {
   background-color: #fff;
 }
-.seesaw:not(.seesaw-up) tr td {
-  border-bottom: 0 !important;
-  border-left: 0 !important;
-  border-right: 0 !important;
-  background-color: #fff;
-}
 
-tr:hover td,
-tr.active td,
-.seesaw.seesaw-up tr:hover td {
-  background: #eee;
-}
-
-tr:hover td.controls > div,
-tr.seesaw-up td.controls > div,
-.seesaw.seesaw-up tr:hover td.controls > div,
-.seesaw.seesaw-up tr.selected td.controls > div {
-  visibility: visible;
-}
-.seesaw.seesaw-up .controls{
-  display: block;
-  clear: both;
-}
-.seesaw.seesaw-up td.controls {
-  display: table-cell;
-}
-.seesaw div.controls {
-  padding: 1em 0;
+.seesaw .controls {
   display: none;
+}
+.seesaw-up .controls{
+  display: block;
 }
 
 .seesaw {
   cursor: pointer;
   width: 300px;
+  color: #999;
 }
-.seesaw.seesaw-up {
+.seesaw-up {
   cursor: default;
   width: 620px;
-}
-
-.seesaw .form-horizontal .controls {
-  clear: none;
-  padding: 0;
 }
 
 @media (min-width: 1200px) {
   .seesaw {
     width: 370px;
   }
-  .seesaw.seesaw-up {
+  .seesaw-up {
     width: 770px;
   }
 }
@@ -134,29 +107,25 @@ tr.seesaw-up td.controls > div,
   padding-top: 1em;
   border-top: 1px solid #fff;
 }
-.seesaw.seesaw-up .box{
+.seesaw-up .box{
   padding: 1em 1.5em;
   border: 1px solid #ddd;
   border-radius: 4px;
+  color: #333;
   background: #fff;
   box-shadow: 2px 2px 7px rgba(0,0,0,.35);
 }
-
-.seesaw,
-.seesaw a,
-.seesaw h2 {
-  color: #999;
+.seesaw .head {
+  overflow: auto;
 }
-
+.seesaw .box > .controls {
+  padding: 1em 0;
+}
 .seesaw .btn {
   color: #333;
 }
 .seesaw .btn-primary {
   color: #fff;
-}
-.seesaw-up,
-.seesaw-up h2 {
-  color: #333;
 }
 
 .seesaw-up th.hide,

@@ -1,1 +1,42 @@
-<h2><%= category %></h2>
+<div class="head">
+    <h2 class="pull-left"><%= category.capitalize %></h2>
+    <h2 class="pull-right">0.00/0.00</h2>
+</div>
+
+<div class="controls">
+    <%= link_to "New " + category.capitalize, new_budget_line_path(@budget)+'/'+category, :class => 'btn' %>
+</div>
+
+<% if lines.empty? %>
+<p>No <%= category %></p>
+<% else %>
+<table class="table table-striped">
+
+    <thead>
+        <th>#</th>
+        <th>name</th>
+        <th>budget</th>
+        <th>actual</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+
+        <% lines.each do |line| %>
+        <tr>
+            <td><%= line.line_number %></td>
+            <td><%= line.name %></td>
+            <td><%= number_to_currency(line.subtotal, :unit => "") %></td>
+            <td><%= number_to_currency(line.actual, :unit => "") %></td>
+            <td class="controls hide">
+                <%= link_to "show", budget_line_path(@budget, line) %>
+                <%= link_to "edit", edit_line_path(line) %>
+                <%= link_to "delete", budget_line_path(@budget, line), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" -%>
+            </td>
+        </tr>
+        <% end %>
+
+    </tbody>
+
+</table>
+<% end %>

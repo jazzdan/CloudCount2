@@ -1,5 +1,9 @@
-<%= form_for @budget, :url => budget_path(@budget), :html => { :class => "edit_budget form-horizontal", :id => "edit_budget" } do |f| -%>
-    <input name="_method" type="hidden" value="put" />
+<section class="form span12">
 
-    <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+    <%= form_for @budget, :url => budget_path(@budget), :html => { :class => "edit_budget form-horizontal", :id => "edit_budget" } do |f| -%>
+        <input name="_method" type="hidden" value="put" />
+
+        <%= render :partial => "form", :locals => {:f => f} %>
+    <% end -%>
+
+</section>

@@ -36,7 +36,7 @@
 
     <div class="box">
 
-        <%= render :partial => 'lines/list', :locals => { :category => 'incomes' } %>
+        <%= render :partial => 'lines/list', :locals => { :category => 'incomes', :lines => @budget.incomes } %>
 
     </div>
 
@@ -46,7 +46,7 @@
 
     <div class="box">
 
-        <%= render :partial => 'lines/list', :locals => { :category => 'expenses' } %>
+        <%= render :partial => 'lines/list', :locals => { :category => 'expenses', :lines => @budget.expenses } %>
 
     </div>
 

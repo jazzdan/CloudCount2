@@ -5,10 +5,12 @@ class Budget < ActiveRecord::Base
     has_many :lines
 
     has_many :incomes, :class_name => "Line",
-        :conditions => { :category => 'incomes' }
+        :conditions => { :category => 'incomes' },
+        :order => 'line_number ASC'
 
     has_many :expenses, :class_name => "Line",
-        :conditions => { :category => 'expenses' }
+        :conditions => { :category => 'expenses' },
+        :order => 'line_number ASC'
 
     has_many :attachments
 

@@ -23,6 +23,7 @@ CloudCount2::Application.routes.draw do
 
   end
 
+  match '/budgets/:budget_id/lines/new/:category', to: 'lines#new'
   resources :lines do
     resources :sublines
   end

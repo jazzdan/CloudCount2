@@ -1,3 +1,8 @@
-<%= form_for [@budget,@line], :url => budget_lines_path, :html => { :class => :form } do |f| -%>
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+<section class="form span12">
+
+    <%= form_for [@budget,@line], :url => budget_lines_path, :html => { :class => 'form-horizontal' } do |f| -%>
+        <legend>Create a new line</legend>
+        <%= render :partial => "form", :locals => {:f => f} %>
+    <% end -%>
+
+</section>
