@@ -1,14 +1,14 @@
 class NotesController < ApplicationController
+  
+  respond_to :html, :json
+
   # GET /notes
   # GET /notes.json
   def index
     @budget = Budget.includes(:notes).find(params[:budget_id])
     @notes = @budget.notes
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @notes }
-    end
+    respond_with(@budget, @notes)
   end
 
   # GET /notes/1
@@ -25,6 +25,7 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.json
   def new
+    @budget = Budget.find(params[:budget_id])
     @note = Note.new
 
     respond_to do |format|
@@ -36,12 +37,14 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = Note.find(params[:id])
+    @budget = Note.budget
   end
 
   # POST /notes
   # POST /notes.json
   def create
     @note = Note.new(params[:note])
+    @note.budget_id = params[:budget_id]
 
     respond_to do |format|
       if @note.save
@@ -77,7 +80,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     respond_to do |format|
-      format.html { redirect_to notes_url }
+      format.html { redirect_to index }
       format.json { head :no_content }
     end
   end

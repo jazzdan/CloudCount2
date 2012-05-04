@@ -1,4 +1,4 @@
-<%= form_for @note, :url => note_path(@note), :html => { :class => "edit_note", :id => "edit_note" } do |f| -%>
+<%= form_for [@budget, @note], :url => budget_notes_path(@note), :html => { :class => "edit_note", :id => "edit_note" } do |f| -%>
   <input name="_method" type="hidden" value="put" />
   <%= render :partial => "form", :locals => {:f => f} %>
 <% end -%>
