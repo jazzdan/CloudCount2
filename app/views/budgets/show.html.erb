@@ -1,5 +1,6 @@
+<section class="details span12">
 
-<table class="span12 table table-highlight">
+<table class="table table-highlight">
 
     <thead>
 
@@ -28,3 +29,17 @@
     </tbody>
 
 </table>
+
+</section>
+
+<section class="incomes span8">
+
+    <%= render :partial => 'lines/list', :locals => { :category => 'incomes' } %>
+
+</section>
+
+<section class="expenses span4">
+
+    <%= render :partial => 'lines/list', :locals => { :category => 'expenses' } %>
+
+</section>
