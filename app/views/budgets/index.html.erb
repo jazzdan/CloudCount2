@@ -15,7 +15,11 @@
       <th>
         <%= t("activerecord.attributes.budget.title", :default => t("activerecord.labels.title", :default => "Title")) %>
       </th>
-      <th>Created at</th>
+      <th>Budget</th>
+      <th>Actual</th>
+      <th>Excess of income</th>
+      <th>Starts</th>
+      <th>Ends</th>
       <th></th>
     </tr>
     </thead>
@@ -23,7 +27,11 @@
     <% @budgets.each do |budget| -%>
      <tr>
       <td><%= link_to budget.title, budget_path(budget) %></td>
-      <td><%= budget.created_at %></td>
+      <td><%= number_to_currency(budget.budget, :unit => "") %></td>
+      <td><%= number_to_currency(budget.actual, :unit => "") %></td>
+      <td><%= number_to_currency(budget.excess, :unit => "") %></td>
+      <td><%= budget.starts %></td>
+      <td><%= budget.ends %></td>
       <td class="controls">
         <%= link_to "Show", budget_path(budget) %>
         <%= link_to "Edit", edit_budget_path(budget) %>
