@@ -13,16 +13,16 @@ class SessionsController < ApplicationController
       user = User.authenticate(params[:session][:email], params[:session][:password_digest])
       if user
         sign_in user
-        result = make_response('success', 'Welcome back!', { :redirect => root_path })
+        result = 'Welcome back!'
       else
-        result = make_response('error', "Could not find account with those credentials")
+        result = "Could not find account with those credentials"
       end
 
       respond_to do |format|
         format.js { render :json => result }
         format.html do
           flash[:notice] = result
-          redirect_to result['status'] == 'success' ? root_path : login_path
+          redirect_to user ? root_path : login_path
         end
       end
     end
@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   def destroy
     cookies.delete(:remember_token)
     self.current_user = nil
-    redirect_to root_path
+    redirect_to root_path, notice: 'Logged out!'
   end
 end

@@ -15,16 +15,6 @@ class ApplicationController < ActionController::Base
     @action = action_name
   end
 
-  # Returns a common format for an ajax response
-  def make_response(status, message, other = {})
-    { status: status, message: message }.merge(other)
-  end
-
-  # returns the text of the first error in an object's errors member
-  def make_error(obj)
-    obj.errors.first.second
-  end
-
   # returns the current user either as an instance variable or attempts to pull a user from the database using the cookie
   def current_user
     @current_user ||= User.from_remember_token(remember_token)
