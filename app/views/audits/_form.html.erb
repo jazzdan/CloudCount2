@@ -1,0 +1,56 @@
+<%= form_for @audit do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :auditable_id %><br />
+    <%= f.number_field :auditable_id %>
+  </p>
+  <p>
+    <%= f.label :auditable_type %><br />
+    <%= f.text_field :auditable_type %>
+  </p>
+  <p>
+    <%= f.label :associated_id %><br />
+    <%= f.number_field :associated_id %>
+  </p>
+  <p>
+    <%= f.label :associated_type %><br />
+    <%= f.text_field :associated_type %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :user_type %><br />
+    <%= f.text_field :user_type %>
+  </p>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :action %><br />
+    <%= f.text_field :action %>
+  </p>
+  <p>
+    <%= f.label :audited_changes %><br />
+    <%= f.text_area :audited_changes %>
+  </p>
+  <p>
+    <%= f.label :version %><br />
+    <%= f.number_field :version %>
+  </p>
+  <p>
+    <%= f.label :comment %><br />
+    <%= f.text_field :comment %>
+  </p>
+  <p>
+    <%= f.label :remote_address %><br />
+    <%= f.text_field :remote_address %>
+  </p>
+  <p>
+    <%= f.label :created_at %><br />
+    <%= f.datetime_select :created_at %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

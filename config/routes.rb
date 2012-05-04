@@ -1,5 +1,7 @@
 CloudCount2::Application.routes.draw do
 
+  resources :audits
+
   resources :sessions, :only => [:new, :create, :destroy]
   match 'logout', to: 'sessions#destroy', as: :logout
   match 'login', to: 'sessions#new', as: :login

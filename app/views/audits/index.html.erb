@@ -1,0 +1,39 @@
+<table>
+  <tr>
+    <th>Auditable</th>
+    <th>Auditable Type</th>
+    <th>Associated</th>
+    <th>Associated Type</th>
+    <th>User</th>
+    <th>User Type</th>
+    <th>Username</th>
+    <th>Action</th>
+    <th>Audited Changes</th>
+    <th>Version</th>
+    <th>Comment</th>
+    <th>Remote Address</th>
+    <th>Created At</th>
+  </tr>
+  <% for audit in @audits %>
+    <tr>
+      <td><%= audit.auditable_id %></td>
+      <td><%= audit.auditable_type %></td>
+      <td><%= audit.associated_id %></td>
+      <td><%= audit.associated_type %></td>
+      <td><%= audit.user_id %></td>
+      <td><%= audit.user_type %></td>
+      <td><%= audit.username %></td>
+      <td><%= audit.action %></td>
+      <td><%= audit.audited_changes %></td>
+      <td><%= audit.version %></td>
+      <td><%= audit.comment %></td>
+      <td><%= audit.remote_address %></td>
+      <td><%= audit.created_at %></td>
+      <td><%= link_to "Show", audit %></td>
+      <td><%= link_to "Edit", edit_audit_path(audit) %></td>
+      <td><%= link_to "Destroy", audit, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Audit", new_audit_path %></p>

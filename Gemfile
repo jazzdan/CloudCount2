@@ -6,6 +6,7 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test  do
   gem 'sqlite3'
+  gem "nifty-generators"
 end
 
 group :production do
@@ -45,3 +46,5 @@ gem 'pg'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+gem "mocha", :group => :test

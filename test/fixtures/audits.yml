@@ -1,0 +1,29 @@
+one:
+  auditable_id: 1
+  auditable_type: MyString
+  associated_id: 1
+  associated_type: MyString
+  user_id: 1
+  user_type: MyString
+  username: MyString
+  action: MyString
+  audited_changes: MyText
+  version: 1
+  comment: MyString
+  remote_address: MyString
+  created_at: 2012-05-04 14:01:45
+
+two:
+  auditable_id: 1
+  auditable_type: MyString
+  associated_id: 1
+  associated_type: MyString
+  user_id: 1
+  user_type: MyString
+  username: MyString
+  action: MyString
+  audited_changes: MyText
+  version: 1
+  comment: MyString
+  remote_address: MyString
+  created_at: 2012-05-04 14:01:45

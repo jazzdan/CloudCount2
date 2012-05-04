@@ -1,0 +1,60 @@
+<% title "Audit" %>
+
+<p>
+  <strong>Auditable:</strong>
+  <%= @audit.auditable_id %>
+</p>
+<p>
+  <strong>Auditable Type:</strong>
+  <%= @audit.auditable_type %>
+</p>
+<p>
+  <strong>Associated:</strong>
+  <%= @audit.associated_id %>
+</p>
+<p>
+  <strong>Associated Type:</strong>
+  <%= @audit.associated_type %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @audit.user_id %>
+</p>
+<p>
+  <strong>User Type:</strong>
+  <%= @audit.user_type %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @audit.username %>
+</p>
+<p>
+  <strong>Action:</strong>
+  <%= @audit.action %>
+</p>
+<p>
+  <strong>Audited Changes:</strong>
+  <%= @audit.audited_changes %>
+</p>
+<p>
+  <strong>Version:</strong>
+  <%= @audit.version %>
+</p>
+<p>
+  <strong>Comment:</strong>
+  <%= @audit.comment %>
+</p>
+<p>
+  <strong>Remote Address:</strong>
+  <%= @audit.remote_address %>
+</p>
+<p>
+  <strong>Created At:</strong>
+  <%= @audit.created_at %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_audit_path(@audit) %> |
+  <%= link_to "Destroy", @audit, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", audits_path %>
+</p>
