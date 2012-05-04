@@ -16,4 +16,16 @@ class Budget < ActiveRecord::Base
 
     audited
 
+    def budget
+        return 0.00
+    end
+
+    def actual
+        return 0.00
+    end
+
+    def excess
+        return 0.00
+    end
+
 end

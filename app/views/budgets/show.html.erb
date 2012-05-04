@@ -7,6 +7,8 @@
             <tr>
                 <th>Title</th>
                 <th>Budget</th>
+                <th>Actual</th>
+                <th>Excess of Income</th>
                 <th>Starts</th>
                 <th>Ends</th>
             </tr>
@@ -17,7 +19,9 @@
 
             <tr>
                 <td><%= @budget.title %></td>
-                <td></td>
+                <td><%= number_to_currency(@budget.budget, :unit => "") %></td>
+                <td><%= number_to_currency(@budget.actual, :unit => "") %></td>
+                <td><%= number_to_currency(@budget.excess, :unit => "") %></td>
                 <td><%= @budget.starts %></td>
                 <td><%= @budget.ends %></td>
                 <td class="controls">
