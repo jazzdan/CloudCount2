@@ -1,0 +1,38 @@
+<div class="head">
+    <h3>Transactions > <%= subline.name %></h3>
+</div>
+
+<div class="controls buffer">
+    <%= link_to "New Transaction", new_subline_transaction_path(subline), :class => 'btn' %>
+</div>
+
+<% if transactions.empty? %>
+<p>No transactions...</p>
+<% else %>
+<table class="table">
+
+    <thead>
+        <th>amount</th>
+        <th>for</th>
+        <th>on</th>
+        <th></th>
+    </thead>
+
+    <tbody>
+
+        <% transactions.each do |transaction| %>
+        <tr>
+            <td><%= number_to_currency(transaction.subtotal, :unit => "") %></td>
+            <td><%= transaction.name %></td>
+            <td><%= transaction.created_at %></td>
+            <td class="controls">
+                <%= link_to "edit", edit_subline_transaction_path(subline, transaction) %>
+                <%= link_to "delete", subline_transaction_path(subline, transaction), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" -%>
+            </td>
+        </tr>
+        <% end %>
+
+    </tbody>
+
+</table>
+<% end %>

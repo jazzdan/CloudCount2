@@ -1,4 +1,9 @@
-<%= form_for @transaction, :url => transaction_path(@transaction), :html => { :class => "edit_transaction", :id => "edit_transaction" } do |f| -%>
-  <input name="_method" type="hidden" value="put" />
-  <%= render :partial => "form", :locals => {:f => f} %>
-<% end -%>
+<section class="form span7">
+
+    <%= form_for @transaction, :url => subline_transaction_path(@subline, @transaction), :html => { :class => "edit_transaction form-horizontal", :id => "edit_transaction" } do |f| -%>
+        <legend>Edit Transaction "<%= @transaction.name %>" - <%= "%d.%d" % [@line.line_number, @subline.line_number]  %> <%= @subline.name -%></legend>
+        <input name="_method" type="hidden" value="put" />
+        <%= render :partial => "form", :locals => {:f => f} %>
+    <% end -%>
+
+</section>

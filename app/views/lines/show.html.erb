@@ -40,3 +40,18 @@
     <%= render :partial => 'sublines/list', :locals => { :sublines => @line.sublines } %>
 
 </section>
+
+<section class="transactions span6">
+
+    <ul class="well no-list tab-content">
+        <li class="tab-pane active"><h3>Select a subline to view transactions</h3></li>
+        <% @line.sublines.each do |subline| %>
+        <li id="subline_<%= subline.id %>" class="tab-pane">
+            <%= render :partial => 'transactions/list', :locals => { 
+                    :subline => subline, :transactions => subline.transactions } %>
+        </li>
+        <% end %>
+    </ul>
+
+
+</section>

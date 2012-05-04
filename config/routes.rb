@@ -4,7 +4,7 @@ CloudCount2::Application.routes.draw do
   match 'logout', to: 'sessions#destroy', as: :logout
   match 'login', to: 'sessions#new', as: :login
 
-  resources :attachments
+  # resources :attachments
 
   # resources :transactions
 

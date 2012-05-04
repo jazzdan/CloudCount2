@@ -1,35 +1,14 @@
 class TransactionsController < ApplicationController
   
   respond_to :html, :json
-  
-  # GET /transactions
-  # GET /transactions.json
-  def index
-    @transactions = Transaction.all
-    @subline = Subline.includes(:transactions).find(params[:transaction_id])
-    @transaction = Transaction.new
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @transactions }
-    end
-  end
-
-  # GET /transactions/1
-  # GET /transactions/1.json
-  def show
-    @transaction = Transaction.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @transaction }
-    end
-  end
 
   # GET /transactions/new
   # GET /transactions/new.json
   def new
     @transaction = Transaction.new
+    @subline = Subline.find(params[:subline_id])
+    @line = @subline.line
+    @budget = @line.budget
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,16 +19,24 @@ class TransactionsController < ApplicationController
   # GET /transactions/1/edit
   def edit
     @transaction = Transaction.find(params[:id])
+    @subline = @transaction.subline
+    @line = @subline.line
+    @budget = @line.budget
   end
 
   # POST /transactions
   # POST /transactions.json
   def create
     @transaction = Transaction.new(params[:transaction])
+    @subline = Subline.find(params[:subline_id])
+    @line = @subline.line
+    @budget = @line.budget
+
+    @transaction.subline_id = @subline.id
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to budget_line_path(@budget, @line), notice: 'Transaction was successfully created.' }
         format.json { render json: @transaction, status: :created, location: @transaction }
       else
         format.html { render action: "new" }
@@ -62,10 +49,13 @@ class TransactionsController < ApplicationController
   # PUT /transactions/1.json
   def update
     @transaction = Transaction.find(params[:id])
+    @subline = @transaction.subline
+    @line = @subline.line
+    @budget = @line.budget
 
     respond_to do |format|
       if @transaction.update_attributes(params[:transaction])
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to budget_line_path(@budget, @line), notice: 'Transaction was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,7 +71,7 @@ class TransactionsController < ApplicationController
     @transaction.destroy
 
     respond_to do |format|
-      format.html { redirect_to transactions_url }
+      format.html { redirect_to budget_line_path(@budget, @line) }
       format.json { head :no_content }
     end
   end

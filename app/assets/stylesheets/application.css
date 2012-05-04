@@ -24,7 +24,10 @@ body {
 .inline {
   display: inline-block;
 }
-
+.no-list {
+  list-style: none;
+  margin-left: 0;
+}
 .danger,
 .danger:hover {
     color: #C43C35;
