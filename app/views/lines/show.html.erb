@@ -43,6 +43,8 @@
 
 <section class="transactions span6">
 
+    <% if @line.sublines.nil? %>
+
     <ul class="well no-list tab-content">
         <li class="tab-pane active"><h3>Select a subline to view transactions</h3></li>
         <% @line.sublines.each do |subline| %>
@@ -53,5 +55,6 @@
         <% end %>
     </ul>
 
+    <% end %>
 
 </section>

@@ -1,7 +1,7 @@
 <section class="form span7">
 
     <%= form_for @line, :url => line_path(@line), :html => { :class => "edit_line form-horizontal", :id => "edit_line" } do |f| -%>
-        <legend>Edit Line - "<%= @line.name %>"</legend>
+        <legend>Edit Line "<%= @line.name %>" - <%= @budget.title %></legend>
         <input name="_method" type="hidden" value="put" />
         <%= render :partial => "form", :locals => {:f => f} %>
     <% end -%>

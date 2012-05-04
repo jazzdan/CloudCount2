@@ -5,7 +5,7 @@ class Line < ActiveRecord::Base
 
     belongs_to :budget
 
-    has_many :sublines
+    has_many :sublines, :dependent => :destroy
 
     audited
 
