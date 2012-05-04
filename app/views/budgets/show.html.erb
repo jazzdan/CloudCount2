@@ -32,14 +32,22 @@
 
 </section>
 
-<section class="incomes span8">
+<section class="incomes seesaw seesaw-up span8">
 
-    <%= render :partial => 'lines/list', :locals => { :category => 'incomes' } %>
+    <div class="box">
+
+        <%= render :partial => 'lines/list', :locals => { :category => 'incomes' } %>
+
+    </div>
 
 </section>
 
-<section class="expenses span4">
+<section class="expenses seesaw span4">
 
-    <%= render :partial => 'lines/list', :locals => { :category => 'expenses' } %>
+    <div class="box">
+
+        <%= render :partial => 'lines/list', :locals => { :category => 'expenses' } %>
+
+    </div>
 
 </section>
