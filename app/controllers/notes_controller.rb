@@ -7,19 +7,9 @@ class NotesController < ApplicationController
   def index
     @budget = Budget.includes(:notes).find(params[:budget_id])
     @notes = @budget.notes
+    @note = Note.new
 
     respond_with(@budget, @notes)
-  end
-
-  # GET /notes/1
-  # GET /notes/1.json
-  def show
-    @note = Note.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @note }
-    end
   end
 
   # GET /notes/new
@@ -34,12 +24,6 @@ class NotesController < ApplicationController
     end
   end
 
-  # GET /notes/1/edit
-  def edit
-    @note = Note.find(params[:id])
-    @budget = Note.budget
-  end
-
   # POST /notes
   # POST /notes.json
   def create
@@ -52,22 +36,6 @@ class NotesController < ApplicationController
         format.json { render json: @note, status: :created, location: @note }
       else
         format.html { render action: "new" }
-        format.json { render json: @note.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /notes/1
-  # PUT /notes/1.json
-  def update
-    @note = Note.find(params[:id])
-
-    respond_to do |format|
-      if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
     end

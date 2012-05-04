@@ -6,8 +6,6 @@ CloudCount2::Application.routes.draw do
 
   resources :attachments
 
-  resources :notes
-
   resources :transactions
 
   resources :lines

@@ -1,19 +1,25 @@
 
-<div class="clearfix">
-   <%= f.label :title, t("activerecord.attributes.note.title", :default => "Title"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :title, :class => 'text_field' %>
-  </div>
-</div>
+<fieldset>
 
-<div class="clearfix">
-   <%= f.label :contents, t("activerecord.attributes.note.contents", :default => "Contents"), :class => :label %>
-  <div class="input">
-    <%= f.text_field :contents, :class => 'text_field' %>
+  <div class="control-group">
+    <div class="input">
+      <%= f.text_field :title, :class => 'text_field', :placeholder => '' %>
+    </div>
   </div>
-</div>
 
-<div class="actions">
-  <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", notes_path %>
-</div>
+  <div class="control-group">
+    <div class="input">
+      <%= f.text_field :contents, :class => 'text_field', :placeholder => 'note...' %>
+    </div>
+  </div>
+
+</fieldset>
+
+<fieldset>
+
+  <div class="actions">
+    <button class="btn primary" type="submit">Save</button> or
+  	<%= link_to "Cancel", notes_path %>
+  </div>
+
+</fieldset>
