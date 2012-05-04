@@ -1,5 +1,13 @@
 <h1><%= link_to @budget.title, budget_path(@budget) %></h1>
 
+<ul class="pills pull-right">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="#">Profile</a></li>
+  <li><a href="#">Messages</a></li>
+  <li><a href="#">Settings</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
 <table class="table table-highlight">
 
     <thead>
@@ -20,6 +28,10 @@
             <td></td>
             <td><%= @budget.starts %></td>
             <td><%= @budget.ends %></td>
+            <td class="controls">
+                <%= link_to "Edit", edit_budget_path(@budget) %>
+                <%= link_to "Delete", budget_path(@budget), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'danger' %>
+            </td>
         </tr>
 
     </tbody>
