@@ -6,4 +6,8 @@ class Subline < ActiveRecord::Base
 
     audited
 
+    def actual
+        return 0.00
+    end
+
 end

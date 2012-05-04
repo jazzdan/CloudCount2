@@ -2,7 +2,7 @@
     <h2>Sublines</h2>
 </div>
 
-<div class="controls">
+<div class="controls buffer">
     <%= link_to "New Subline", new_line_subline_path(@line), :class => 'btn' %>
 </div>
 
@@ -23,12 +23,11 @@
 
         <% sublines.each do |subline| %>
         <tr>
-            <td><%= subline.subline_number %></td>
+            <td><%= @line.line_number %>.<%= subline.line_number %></td>
             <td><%= subline.name %></td>
             <td><%= number_to_currency(subline.subtotal, :unit => "") %></td>
             <td><%= number_to_currency(subline.actual, :unit => "") %></td>
-            <td class="controls hide">
-                <%= link_to "show", line_subline_path(@line, subline) %>
+            <td class="controls">
                 <%= link_to "edit", edit_subline_path(subline) %>
                 <%= link_to "delete", line_subline_path(@line, subline), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" -%>
             </td>
