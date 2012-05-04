@@ -16,6 +16,8 @@ class Budget < ActiveRecord::Base
 
     audited
 
+    ROLLS = ['daily', 'weekly', 'monthly', 'quarterly', 'yearly']
+
     def budget
         if @budget_total.nil?
             @budget_total = self.lines.reduce(0) do |sum, lines|

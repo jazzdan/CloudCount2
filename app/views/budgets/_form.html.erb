@@ -32,7 +32,7 @@
     <div class="control-group">
         <%= f.label :rolls, t("activerecord.attributes.budget.rolls", :default => "Rolls"), :class => 'control-label' %>
         <div class="controls">
-            <%= f.text_field :rolls, :class => 'text_field' %>
+            <%= f.select :rolls, Budget::ROLLS %>
         </div>
     </div>
 
