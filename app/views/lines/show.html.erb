@@ -10,6 +10,7 @@
                 <th>Category</th>
                 <th>Budget</th>
                 <th>Actual</th>
+                <th>Excess</th>
                 <th></th>
             </tr>
 
@@ -23,6 +24,7 @@
                 <td><%= @line.category.capitalize %></td>
                 <td><%= number_to_currency(@line.budget_total, :unit => "") %></td>
                 <td><%= number_to_currency(@line.actual, :unit => "") %></td>
+                <td class="<%= "danger" unless @line.excess >= 0 %>"><%= number_to_currency(@line.excess, :unit => "") %></td>
                 <td class="controls">
                     <%= link_to "Edit", edit_budget_line_path(@budget, @line) %>
                     <%= link_to "Delete", budget_line_path(@budget, @line), :method => "delete", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}", :class => 'danger' %>
@@ -43,7 +45,7 @@
 
 <section class="transactions span6">
 
-    <% if @line.sublines.nil? %>
+    <% unless @line.sublines.nil? %>
 
     <ul class="well no-list tab-content">
         <li class="tab-pane active"><h3>Select a subline to view transactions</h3></li>

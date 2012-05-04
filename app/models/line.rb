@@ -27,4 +27,8 @@ class Line < ActiveRecord::Base
         @actual_total
     end
 
+    def excess
+        self.budget_total - self.actual
+    end
+
 end
