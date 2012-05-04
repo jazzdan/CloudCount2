@@ -20,6 +20,7 @@ class BudgetsController < ApplicationController
   # GET /budgets/1
   # GET /budgets/1.json
   def show
+    @category = params[:category]
     @budget = Budget.includes(:incomes, :expenses).find(params[:id])
 
     respond_to do |format|

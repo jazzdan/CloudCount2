@@ -32,5 +32,5 @@
 
 <div class="form-actions">
   <button class="btn btn-primary" type="submit">Save</button> or
-	<%= link_to "Cancel", @line.id ? budget_line_path(@budget, @line) : budget_path(@budget), :class => 'danger' %>
+	<%= link_to "Cancel", @line.id ? budget_line_path(@budget, @line) : budget_path(@budget) + '/' + @line.category, :class => 'danger' %>
 </div>

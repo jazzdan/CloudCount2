@@ -32,7 +32,7 @@
 
 </section>
 
-<section class="incomes seesaw seesaw-up span8">
+<section class="incomes seesaw <%= (@category.nil? || @category == 'incomes') ? "seesaw-up span8" : "span4" %>">
 
     <div class="box">
 
@@ -42,7 +42,7 @@
 
 </section>
 
-<section class="expenses seesaw span4">
+<section class="expenses seesaw <%= @category == 'expenses' ? "seesaw-up span8" : "span4" %>">
 
     <div class="box">
 

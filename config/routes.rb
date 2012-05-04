@@ -12,7 +12,6 @@ CloudCount2::Application.routes.draw do
 
   # resources :sublines
 
-
   resources :budgets do 
 
     resources :lines
@@ -22,6 +21,7 @@ CloudCount2::Application.routes.draw do
     resources :attachments
 
   end
+  match '/budgets/:id/:category', to: 'budgets#show'
 
   match '/budgets/:budget_id/lines/new/:category', to: 'lines#new'
   resources :lines do
