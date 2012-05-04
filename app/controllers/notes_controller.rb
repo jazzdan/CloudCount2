@@ -2,6 +2,12 @@ class NotesController < ApplicationController
   
   respond_to :html, :json
 
+  before_filter :setup
+
+  def setup
+    @subtitle = 'Notes'
+  end
+
   # GET /notes
   # GET /notes.json
   def index

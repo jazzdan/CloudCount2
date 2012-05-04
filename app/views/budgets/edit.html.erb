@@ -1,5 +1,3 @@
-<h1 class="title"><%= link_to @budget.title, budget_path(@budget) %> <small>Edit</small></h1>
-
 <%= form_for @budget, :url => budget_path(@budget), :html => { :class => "edit_budget form-horizontal", :id => "edit_budget" } do |f| -%>
     <input name="_method" type="hidden" value="put" />
 

@@ -1,4 +1,11 @@
 class BudgetsController < ApplicationController
+
+  before_filter :setup
+
+  def setup
+    @subtitle = 'Budget'
+  end
+
   # GET /budgets
   # GET /budgets.json
   def index

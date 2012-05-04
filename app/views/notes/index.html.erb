@@ -1,18 +1,17 @@
-<h1 class="title"><%= link_to @budget.title, '/budgets/%d'%[@budget.id] %> <small>Notes</small></h1>
 
 <!-- new note -->
-<%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline' } do |f| -%>
+<%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline span12' } do |f| -%>
   
   <%= f.text_field :title, :class => 'text_field', :placeholder => 'title' %>
 
   <%= f.text_field :contents, :class => 'text_field', :placeholder => 'note...' %>
 
-  <button class="btn primary" type="submit">Add</button>
+  <button class="btn btn-primary" type="submit">Add Note</button>
 
 <% end -%>
 
 <!-- notes list -->
-<table class="table table-striped">
+<table class="table table-striped span12">
  <thead>
   <tr>
     <th>

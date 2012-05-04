@@ -48,13 +48,36 @@
 <!-- content -->
 <div id="main" role="main" class="container">
 
+<% if @budget %>
+
+<header class="span12">
+
+    <h1 class="title pull-left">
+      <%= link_to @budget.title, budget_path(@budget) %>
+      <% if @subtitle %>
+      <small><%= @subtitle %></small>
+      <% end %>
+    </h1>
+
+    <ul class="nav nav-pills pull-right">
+      <li><%= link_to "Budget", budget_path(@budget) %></li>
+      <li><%= link_to "Notes", budget_notes_path(@budget) %></li>
+      <li><%= link_to "Attachments", budget_attachments_path(@budget) %></li>
+    </ul>
+
+</header>
+
+<% end %>
+
 <% if flash[:notice] || flash[:error] %>
   <div id="status_bar" class="container">
     <%= render :partial => 'shared/flash_bar' %>
   </div>
 <% end %>
 
+<div class="row">
 <%= yield %>
+</div>
 
 </div>
 

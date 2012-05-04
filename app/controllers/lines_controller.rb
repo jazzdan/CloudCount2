@@ -2,6 +2,12 @@ class LinesController < ApplicationController
   
   respond_to :html, :json
 
+  before_filter :setup
+
+  def setup
+    @subtitle = 'Lines'
+  end
+
   # GET /lines
   # GET /lines.json
   def index
@@ -9,7 +15,6 @@ class LinesController < ApplicationController
     @budget = Budget.includes(:lines).find(params[:budget_id])
     @lines = @budget.lines
     @line = Line.new
-
     respond_with(@budget, @lines)
   end
 

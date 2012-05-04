@@ -1,8 +1,16 @@
 class AttachmentsController < ApplicationController
+
+  before_filter :setup
+
+  def setup
+    @subtitle = 'Attachments'
+  end
+
   # GET /attachments
   # GET /attachments.json
   def index
-    @attachments = Attachment.all
+    @budget = Budget.includes(:attachments).find(params[:budget_id])
+    @attachments = @budget.attachments
 
     respond_to do |format|
       format.html # index.html.erb
