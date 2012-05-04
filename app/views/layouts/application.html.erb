@@ -60,9 +60,10 @@
     </h1>
 
     <ul class="nav nav-pills pull-right">
-      <li><%= link_to "Budget", budget_path(@budget) %></li>
-      <li><%= link_to "Notes", budget_notes_path(@budget) %></li>
-      <li><%= link_to "Attachments", budget_attachments_path(@budget) %></li>
+      <li class="<%= "active" if @subtitle == 'Budget' %>"><%= link_to "Budget", budget_path(@budget) %></li>
+      <li class="<%= "active" if @subtitle == 'Notes' %>"><%= link_to "Notes", budget_notes_path(@budget) %></li>
+      <li class="<%= "active" if @subtitle == 'Attachments' %>"><%= link_to "Attachments", budget_attachments_path(@budget) %></li>
+      <li class="<%= "active" if @subtitle == 'Audit' %>"><%= link_to "Audit", '/audit' %></li>
     </ul>
 
 </header>
