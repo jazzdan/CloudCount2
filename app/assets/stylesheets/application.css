@@ -20,6 +20,10 @@ body {
     margin-bottom: 24px;
 }
 
+.inline {
+  display: inline-block;
+}
+
 .danger,
 .danger:hover {
     color: #C43C35;

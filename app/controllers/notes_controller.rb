@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   before_filter :setup
 
   def setup
-    @subtitle = 'Lines'
+    @subtitle = 'Notes'
   end
 
   # GET /notes

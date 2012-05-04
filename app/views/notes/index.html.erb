@@ -1,14 +1,18 @@
 
-<!-- new note -->
-<%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline span12' } do |f| -%>
-  
-  <%= f.text_field :title, :class => 'text_field', :placeholder => 'title' %>
+<section class="form span12">
 
-  <%= f.text_field :contents, :class => 'text_field', :placeholder => 'note...' %>
+  <!-- new note -->
+  <%= form_for [@budget, @note], :url => budget_notes_path, :html => { :class => 'well form-inline pull-right' } do |f| -%>
+    
+    <%= f.text_field :title, :class => 'text_field input-small', :placeholder => 'title' %>
 
-  <button class="btn btn-primary" type="submit">Add Note</button>
+    <%= f.text_field :contents, :class => 'text_field input-xlarge', :placeholder => 'note...' %>
 
-<% end -%>
+    <button class="btn btn-primary" type="submit">Add Note</button>
+
+  <% end -%>
+
+</section>
 
 <!-- notes list -->
 <table class="table table-striped span12">
