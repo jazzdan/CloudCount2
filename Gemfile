@@ -25,7 +25,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "paperclip", "~> 3.0"
 gem 'aws-sdk', '~> 1.3.4'
 gem "audited-activerecord"
