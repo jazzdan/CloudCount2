@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
     @remote_ip = request.remote_ip
     @user_agent = request.user_agent
     @current_uri = request.url
-    puts current_user
 
     @current_user = current_user
     @controller = controller_name

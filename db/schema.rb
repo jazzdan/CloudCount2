@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120504000751) do
-=======
-ActiveRecord::Schema.define(:version => 20120503235529) do
->>>>>>> 5dd7d68e587a1debde68546f1afd1c2f6d5a2043
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
