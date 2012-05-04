@@ -118,7 +118,7 @@ body {
 .seesaw .head {
   overflow: auto;
 }
-.seesaw .box > .controls {
+div.controls {
   padding: 1em 0;
 }
 .seesaw .btn {
