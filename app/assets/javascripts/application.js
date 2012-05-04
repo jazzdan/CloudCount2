@@ -14,3 +14,21 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+$(function () {
+
+    "use strict";
+
+    $('.seesaw').click(function (event) {
+
+        var tar = $(event.target).closest('.seesaw');
+
+        if (!tar.is('.seesaw-up')) {
+            $('.seesaw-up').removeClass('seesaw-up span8').addClass('span4');
+
+            tar.removeClass('span4').addClass('seesaw-up span8');
+        }
+
+    });
+
+});

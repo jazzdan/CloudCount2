@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap.min
+ *= require bootstrap-responsive.min
  *= require_self
 */
 
@@ -68,4 +69,111 @@ body {
 .table-highlight tr td:last-child {
   padding-right: 20px;
   border-radius: 0 4px 4px 0;
+}
+
+/* Seesaw */
+
+.seesaw tr:hover td {
+  background-color: #fff;
+}
+.seesaw:not(.seesaw-up) tr td {
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  background-color: #fff;
+}
+
+tr:hover td,
+tr.active td,
+.seesaw.seesaw-up tr:hover td {
+  background: #eee;
+}
+
+tr:hover td.controls > div,
+tr.seesaw-up td.controls > div,
+.seesaw.seesaw-up tr:hover td.controls > div,
+.seesaw.seesaw-up tr.selected td.controls > div {
+  visibility: visible;
+}
+.seesaw.seesaw-up .controls{
+  display: block;
+  clear: both;
+}
+.seesaw.seesaw-up td.controls {
+  display: table-cell;
+}
+.seesaw div.controls {
+  padding: 1em 0;
+  display: none;
+}
+
+.seesaw {
+  cursor: pointer;
+  width: 300px;
+}
+.seesaw.seesaw-up {
+  cursor: default;
+  width: 620px;
+}
+
+.seesaw .form-horizontal .controls {
+  clear: none;
+  padding: 0;
+}
+
+@media (min-width: 1200px) {
+  .seesaw {
+    width: 370px;
+  }
+  .seesaw.seesaw-up {
+    width: 770px;
+  }
+}
+
+.box{
+  padding-top: 1em;
+  border-top: 1px solid #fff;
+}
+.seesaw.seesaw-up .box{
+  padding: 1em 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 2px 2px 7px rgba(0,0,0,.35);
+}
+
+.seesaw,
+.seesaw a,
+.seesaw h2 {
+  color: #999;
+}
+
+.seesaw .btn {
+  color: #333;
+}
+.seesaw .btn-primary {
+  color: #fff;
+}
+.seesaw-up,
+.seesaw-up h2 {
+  color: #333;
+}
+
+.seesaw-up th.hide,
+.seesaw-up td.hide {
+  display: table-cell;
+}
+
+/* info */
+.seesaw .dirty td,
+.seesaw .dirty:hover td {
+  background-color: #DFF0D8;
+  color: #468847;
+}
+
+.changed td,
+.seesaw .changed td,
+.seesaw .changed:hover td {
+  background: #D9EDF7;
+  color: #3A87AD;
 }
