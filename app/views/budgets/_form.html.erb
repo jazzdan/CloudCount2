@@ -41,5 +41,5 @@
 
 <div class="form-actions">
     <button class="btn btn-primary" type="submit">Save</button> or
-    <%= link_to "Cancel", budgets_path, :class => 'danger' %>
+    <%= link_to "Cancel", @budget.id.nil? ? budgets_path : budget_path(@budget), :class => 'danger' %>
 </div>
