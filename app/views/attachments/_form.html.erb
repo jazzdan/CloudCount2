@@ -28,6 +28,13 @@
 </div>
 
 <div class="clearfix">
+  <%= f.label :file, :class => :label %>
+  <div class="input">
+    <%= f.file_field :file %>
+  </div>
+</div>
+
+<div class="clearfix">
    <%= f.label :user_id, t("activerecord.attributes.attachment.user_id", :default => "User"), :class => :label %>
   <div class="input">
     <%= f.number_field :user_id, :class => 'number_field' %>
@@ -35,5 +42,5 @@
 </div>
 <div class="actions">
   <button class="btn primary" type="submit">Save</button> or
-	<%= link_to "Cancel", attachments_path %>
+	<%= link_to "Cancel", budget_attachments_path %>
 </div>

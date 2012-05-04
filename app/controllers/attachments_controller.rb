@@ -1,6 +1,9 @@
 class AttachmentsController < ApplicationController
 
   before_filter :setup
+  before_filter :require_login
+
+  respond_to :html, :json
 
   def setup
     @subtitle = 'Attachments'
@@ -22,6 +25,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments/1.json
   def show
     @attachment = Attachment.find(params[:id])
+    @budget = @attachment.budget
 
     respond_to do |format|
       format.html # show.html.erb
@@ -33,6 +37,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments/new.json
   def new
     @attachment = Attachment.new
+    @budget = Budget.find(params[:budget_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,38 +45,19 @@ class AttachmentsController < ApplicationController
     end
   end
 
-  # GET /attachments/1/edit
-  def edit
-    @attachment = Attachment.find(params[:id])
-  end
-
   # POST /attachments
   # POST /attachments.json
   def create
     @attachment = Attachment.new(params[:attachment])
+    @attachment.budget_id = params[:budget_id]
+    @budget = @attachment.budget
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully created.' }
+        format.html { redirect_to budget_attachments_path(@budget), notice: 'Attachment was successfully created.' }
         format.json { render json: @attachment, status: :created, location: @attachment }
       else
         format.html { render action: "new" }
-        format.json { render json: @attachment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /attachments/1
-  # PUT /attachments/1.json
-  def update
-    @attachment = Attachment.find(params[:id])
-
-    respond_to do |format|
-      if @attachment.update_attributes(params[:attachment])
-        format.html { redirect_to @attachment, notice: 'Attachment was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
         format.json { render json: @attachment.errors, status: :unprocessable_entity }
       end
     end
@@ -84,7 +70,7 @@ class AttachmentsController < ApplicationController
     @attachment.destroy
 
     respond_to do |format|
-      format.html { redirect_to attachments_url }
+      format.html { redirect_to budget_attachments_url(@attachment.budget) }
       format.json { head :no_content }
     end
   end

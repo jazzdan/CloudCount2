@@ -1,6 +1,6 @@
 <section class="form span7">
 
-    <%= form_for @attachment, :url => attachments_path, :html => { :class => 'form-horizontal' } do |f| -%>
+<%= form_for @attachment, :url => budget_attachments_path, :html => { :class => 'form-horizontal', :multipart => true } do |f| -%>
       <%= render :partial => "form", :locals => {:f => f} %>
     <% end -%>
 

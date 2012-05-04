@@ -13,9 +13,10 @@
     <tbody>
     <% @attachments.each do |attachment| -%>
      <tr>
-      <td>name goes here...</td>
+       <td><%= attachment.name %></td>
       <td><%= attachment.created_at %></td>
       <td class="controls">
+        <%= link_to "Show", attachment.file.url %> 
         <%= link_to "Destroy", budget_attachment_path(@budget, attachment), :method => :delete, :class => 'danger', :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </td>
       </tr>

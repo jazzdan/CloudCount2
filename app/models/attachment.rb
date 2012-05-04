@@ -1,8 +1,10 @@
 class Attachment < ActiveRecord::Base
+  belongs_to :budget
+  
   has_attached_file :file,
-  :store => :s3,
+  :storage => :s3,
   :s3_credentials => "#{Rails.root}/config/s3.yml",
-  # :path => ":attachment/files/:id.:extension",
+  # :path => ":attachment/files/",
   :bucket => 'cloudcount'
 
   audited
