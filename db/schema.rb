@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504184936) do
+ActiveRecord::Schema.define(:version => 20120504191037) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(:version => 20120504184936) do
   create_table "budgets", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "starts"
-    t.datetime "ends"
+    t.string   "starts"
+    t.string   "ends"
     t.string   "rolls"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false

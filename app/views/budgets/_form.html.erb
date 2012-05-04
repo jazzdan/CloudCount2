@@ -18,14 +18,16 @@
     <div class="control-group">
         <%= f.label :starts, t("activerecord.attributes.budget.starts", :default => "Starts"), :class => 'control-label' %>
         <div class="controls">
-            <%= f.number_field :starts, :class => 'number_field' %>
+            <%= f.text_field :starts, :class => 'number_field' %>
+            <span class="help-inline">dd-mm-yyyy</span>
         </div>
     </div>
 
     <div class="control-group">
         <%= f.label :ends, t("activerecord.attributes.budget.ends", :default => "Ends"), :class => 'control-label' %>
         <div class="controls">
-            <%= f.number_field :ends, :class => 'number_field' %>
+            <%= f.text_field :ends, :class => 'number_field' %>
+            <span class="help-inline">dd-mm-yyyy</span>
         </div>
     </div>
 
