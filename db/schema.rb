@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504191037) do
+ActiveRecord::Schema.define(:version => 20120506193227) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "budget_id"
@@ -59,14 +59,14 @@ ActiveRecord::Schema.define(:version => 20120504191037) do
   end
 
   create_table "lines", :force => true do |t|
-    t.integer  "budget_id"
-    t.integer  "line_number"
+    t.integer  "budget_id",   :default => 0
+    t.integer  "line_number", :default => 0
     t.string   "name"
-    t.float    "subtotal"
+    t.float    "subtotal",    :default => 0.0
     t.string   "category"
-    t.integer  "order"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "order",       :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "notes", :force => true do |t|
@@ -78,25 +78,25 @@ ActiveRecord::Schema.define(:version => 20120504191037) do
   end
 
   create_table "sublines", :force => true do |t|
-    t.integer  "line_id"
-    t.integer  "line_number"
+    t.integer  "line_id",     :default => 0
+    t.integer  "line_number", :default => 0
     t.string   "name"
-    t.float    "subtotal"
+    t.float    "subtotal",    :default => 0.0
     t.string   "category"
-    t.integer  "order"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "order",       :default => 0
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "transactions", :force => true do |t|
-    t.integer  "budget_id"
-    t.integer  "subline_id"
+    t.integer  "budget_id",  :default => 0
+    t.integer  "subline_id", :default => 0
     t.string   "name"
-    t.float    "subtotal"
-    t.integer  "order"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.float    "subtotal",   :default => 0.0
+    t.integer  "order",      :default => 0
+    t.integer  "user_id",    :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "users", :force => true do |t|
