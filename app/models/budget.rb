@@ -21,7 +21,7 @@ class Budget < ActiveRecord::Base
     def budget
         if @budget_total.nil?
             @budget_total = self.lines.reduce(0) do |sum, lines|
-                sum + lines.subtotal
+                sum + lines.budget_total
             end
         end
         @budget_total
@@ -47,7 +47,7 @@ class Budget < ActiveRecord::Base
     def category_budget(cat)
         self.lines.reduce(0) do |sum, line|
             if line.category == cat
-                sum + line.subtotal
+                sum + line.budget_total
             else
                 sum
             end
